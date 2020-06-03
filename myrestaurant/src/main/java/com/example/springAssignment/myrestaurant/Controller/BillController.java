@@ -1,7 +1,7 @@
 package com.example.springAssignment.myrestaurant.Controller;
 
 import com.example.springAssignment.myrestaurant.Repository.BillRepository;
-import com.example.springAssignment.myrestaurant.entity.Bills;
+import com.example.springAssignment.myrestaurant.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api3")
+@RequestMapping("/bills")
 public class BillController {
 
     private BillRepository billRepository;
@@ -21,13 +21,13 @@ public class BillController {
     public BillController(BillRepository theBillRepository){
         billRepository=theBillRepository;
     }
-     @GetMapping("/bill")
+     @GetMapping("/findBills")
     public List<Bills> findAll(){
         return billRepository.findAll();
      }
 
 
-    @GetMapping("/bill/{customerId}")
+    @GetMapping("/findBills/{customerId}")
     public Optional<Bills> getBill(@PathVariable int customerId){
         return billRepository.findById(customerId);
     }

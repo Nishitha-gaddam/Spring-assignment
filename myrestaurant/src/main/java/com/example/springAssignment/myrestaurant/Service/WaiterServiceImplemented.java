@@ -1,7 +1,7 @@
 package com.example.springAssignment.myrestaurant.Service;
 
 import com.example.springAssignment.myrestaurant.Repository.WaiterRepository;
-import com.example.springAssignment.myrestaurant.entity.Orders;
+import com.example.springAssignment.myrestaurant.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

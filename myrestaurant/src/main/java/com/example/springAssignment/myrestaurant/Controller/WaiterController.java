@@ -24,7 +24,7 @@ public class WaiterController {
 
     @GetMapping("/order")
     public List<Orders> findAll() {
-        return waiterService.FindAll();
+        return waiterService.findAll();
     }
 
     @GetMapping("/orders")

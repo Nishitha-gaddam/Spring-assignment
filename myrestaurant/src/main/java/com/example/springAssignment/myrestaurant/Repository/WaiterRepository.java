@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-
-public interface WaiterRepository extends JpaRepository<Orders,Integer> {
-    @Query("select orderId,itemName from Orders")
-    public List<String> findOrders();
+public interface WaiterRepository extends JpaRepository<Orders, Integer> {
+	@Query("select orderId,itemName from Orders")
+	public List<String> findOrders();
 
 }

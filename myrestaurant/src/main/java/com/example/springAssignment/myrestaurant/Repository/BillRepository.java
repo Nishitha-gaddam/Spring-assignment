@@ -7,11 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Date;
 import java.util.List;
 
-public interface BillRepository  extends JpaRepository<Bills,Integer> {
-
-
-
-
-
+public interface BillRepository extends JpaRepository<Bills, Integer> {
 
 }
