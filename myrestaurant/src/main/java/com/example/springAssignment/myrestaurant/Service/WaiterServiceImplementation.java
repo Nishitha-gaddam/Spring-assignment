@@ -10,11 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 @Service
-public class WaiterServiceImplemented implements WaiterService{
+public class WaiterServiceImplementation implements WaiterService{
 
     private WaiterRepository waiterRepo;
     @Autowired
-    public WaiterServiceImplemented(WaiterRepository theWaiterRepo) {
+    public WaiterServiceImplementation(WaiterRepository theWaiterRepo) {
         waiterRepo = theWaiterRepo;
     }
 

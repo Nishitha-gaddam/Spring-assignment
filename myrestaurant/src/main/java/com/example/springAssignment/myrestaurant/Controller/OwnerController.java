@@ -1,37 +1,38 @@
 package com.example.springAssignment.myrestaurant.Controller;
 
 import com.example.springAssignment.myrestaurant.Repository.OwnerRepository;
+import com.example.springAssignment.myrestaurant.Service.OwnerService;
 import com.example.springAssignment.myrestaurant.entity.Bills;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.sql.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api6")
+@RequestMapping("/owners")
 public class OwnerController {
-    private OwnerRepository ownerRepository;
+	private OwnerService ownerService;
 
-    public OwnerController(OwnerRepository theOwnerRepository){
-        ownerRepository=theOwnerRepository;
-    }
+	public OwnerController(OwnerService theOwnerService) {
+		ownerService = theOwnerService;
+	}
 
-    @GetMapping("/bill")
-    public List<Bills> getAlllBills(){
-        return ownerRepository.findAll();
-    }
+	@GetMapping("/getbills")
+	public List<Bills> getAlllBills() {
+		return ownerService.findAlllBills();
+	}
 
-    @GetMapping("/bill/{fromDate}/{toDate}")
-    public List<Bills> getBills(@PathVariable Date fromDate, @PathVariable Date toDate){
-        return ownerRepository.generateBill(fromDate,toDate);
-    }
-    @GetMapping("/bill/{date}")
-    public List<Bills> getBillsByDay(@PathVariable Date date){
-        return ownerRepository.getBillsByDay(date);
+	@GetMapping("/getbills/{fromDate}/{toDate}")
+	public List<Bills> getBills(@PathVariable Date fromDate, @PathVariable Date toDate) {
+		return ownerService.generateBill(fromDate, toDate);
+	}
 
-    }
+	@GetMapping("/getbills/{date}")
+	public List<Bills> getBillsByDay(@PathVariable Date date) {
+		return ownerService.getBillsByDay(date);
+
+	}
 }

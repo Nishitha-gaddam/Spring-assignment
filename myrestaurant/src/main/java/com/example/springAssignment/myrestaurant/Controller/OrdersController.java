@@ -1,6 +1,7 @@
 package com.example.springAssignment.myrestaurant.Controller;
 
 import com.example.springAssignment.myrestaurant.Repository.OrdersRepository;
+import com.example.springAssignment.myrestaurant.Service.OrderService;
 import com.example.springAssignment.myrestaurant.entity.Bills;
 import com.example.springAssignment.myrestaurant.entity.Orders;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,22 +13,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api2")
+@RequestMapping("/orders")
 public class OrdersController {
-    private OrdersRepository ordersRepository;
+	private OrderService orderService;
 
-   public OrdersController(OrdersRepository theOrdersRepository){
-        ordersRepository =theOrdersRepository;
-    }
+	public OrdersController(OrderService theOrderService) {
+		orderService = theOrderService;
+	}
 
-    @GetMapping("/orders")
-    public List<Orders> findAll(){
-        return ordersRepository.findAll();
-    }
-
-    @GetMapping("/bill/{customerId}")
-    public Optional<Orders> getBill(@PathVariable int customerId){
-        return ordersRepository.findById(customerId);
-    }
+	@GetMapping("/getOrders")
+	public List<Orders> findAll() {
+		return orderService.findAll();
+	}
 
 }
